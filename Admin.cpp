@@ -63,6 +63,32 @@ Test Admin::createTest()
     return newTest;
 }
 
+Test Admin::deleteTest() {
+    if (this->arrTestAdmin.empty()) {
+        cout << "you don't have tests, add test them" << endl;;
+    }
+    else {
+        for (auto item : arrTestAdmin) {
+            int numberTest = 1;
+            cout << "test number: " << numberTest << endl;
+            cout << "category test: " << item.getCategory() << endl;
+            cout << "name test: " << item.getName() << endl << endl;
+            numberTest++;
+        }
+        int choiseDelete;
+        cout << "enter the number of the test you want to delete: ";
+        cin >> choiseDelete;
+        if (choiseDelete > 0 && choiseDelete <= arrTestAdmin.size()) {
+            arrTestAdmin.erase(arrTestAdmin.begin() + (choiseDelete - 1));
+            cout << endl << "test is delete" << endl;
+        }
+        else {
+            cout << "no correct" << endl;
+        }
+
+    }
+}
+
 void Admin::changePass()
 {
     string newPass;
@@ -120,8 +146,17 @@ void Admin::menuAdmin()
     case 1:
         createTest();
         break;
-
+    case 2:
+        deleteTest();
+        break;
+    case 8:
+        changeLogin();
+        break;
+    case 9:
+        changePass();
+        break;
     }
+
 }
 
 Admin::~Admin()

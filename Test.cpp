@@ -9,6 +9,16 @@ Test::Test(string category, string name, vector<string> questions, vector<vector
 	this->correctAnswers = correctAnswers;
 }
 
+string Test::getCategory()
+{
+	return this->category;
+}
+
+string Test::getName()
+{
+	return this->name;
+}
+
 void Test::print()
 {
 	cout << "Test category: " << category << endl;
