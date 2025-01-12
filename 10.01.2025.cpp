@@ -8,5 +8,5 @@ using namespace std;
 int main()
 {
 	User user;
-	user.goTest();
+	user.createTest();
 }
