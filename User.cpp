@@ -30,7 +30,7 @@ void User::setCategoryUser(string categoryUser)
 	this->categoryUser = categoryUser;
 }
 
-Test User::goTest()
+Test User::createTest()
 {
     string category;
     string name;
@@ -51,23 +51,23 @@ Test User::goTest()
     for (int i = 0; i < questionsNum; i++) {
         cout << "Enter question " << i + 1 << ": ";
         cin >> question;
-        questions.push_back(question); // вопросы
+        questions.push_back(question); // ГўГ®ГЇГ°Г®Г±Г»
         vector<string> answers;
         for (int j = 0; j < 3; j++) {
             cout << "Enter answer " << j + 1 << ": ";
             cin >> answer;
-            answers.push_back(answer); // варианты ответов
+            answers.push_back(answer); // ГўГ Г°ГЁГ Г­ГІГ» Г®ГІГўГҐГІГ®Гў
         }
         answersMatrix.push_back(answers);
         cout << "Enter correct answer: ";
         cin >> correctAnswer;
-        correctAnswers.push_back(correctAnswer); // правильные ответы
+        correctAnswers.push_back(correctAnswer); // ГЇГ°Г ГўГЁГ«ГјГ­Г»ГҐ Г®ГІГўГҐГІГ»
     }
     int choice;
     cout << "Press 1 to pass the test: ";
     cin >> choice;
     cout << endl;
-    system("cls"); // очистка консоли
+    system("cls"); // Г®Г·ГЁГ±ГІГЄГ  ГЄГ®Г­Г±Г®Г«ГЁ
     vector <int> answersUser;
     int answerUser;
     int goodmark = 0;
