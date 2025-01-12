@@ -51,23 +51,23 @@ Test User::createTest()
     for (int i = 0; i < questionsNum; i++) {
         cout << "Enter question " << i + 1 << ": ";
         cin >> question;
-        questions.push_back(question); // вопросы
+        questions.push_back(question); 
         vector<string> answers;
         for (int j = 0; j < 3; j++) {
             cout << "Enter answer " << j + 1 << ": ";
             cin >> answer;
-            answers.push_back(answer); // варианты ответов
+            answers.push_back(answer); 
         }
         answersMatrix.push_back(answers);
         cout << "Enter correct answer: ";
         cin >> correctAnswer;
-        correctAnswers.push_back(correctAnswer); // правильные ответы
+        correctAnswers.push_back(correctAnswer); 
     }
     int choice;
     cout << "Press 1 to pass the test: ";
     cin >> choice;
     cout << endl;
-    system("cls"); // очистка консоли
+    system("cls"); // РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
     vector <int> answersUser;
     int answerUser;
     int goodmark = 0;
