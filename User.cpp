@@ -30,26 +30,13 @@ void User::setCategoryUser(string categoryUser)
 	this->categoryUser = categoryUser;
 }
 
-void User::takeBreak()
-{
-    int choice1;
-    int choice2;
-    cout << "If you want to stop test, enter 1, else enter 0: ";
-    cin >> choice1;
-    while (choice1 == 1) {
-        break;
-        cin >> choice2;
-        continue;
-    }
-}
-
 Test User::goTest()
 {
     bool goTest;
     cout << "Press 1 to pass the test: ";
     cin >> goTest;
     cout << endl;
-    system("cls"); // î÷èñòêà êîíñîëè
+    system("cls"); // Ã®Ã·Ã¨Ã±Ã²ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¨
     vector <int> answersUser;
     int answerUser;
     int goodmark = 0;
