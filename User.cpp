@@ -36,7 +36,7 @@ Test User::goTest()
     cout << "Press 1 to pass the test: ";
     cin >> goTest;
     cout << endl;
-    system("cls"); // î÷èñòêà êîíñîëè
+    system("cls"); // Ã®Ã·Ã¨Ã±Ã²ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¨
     vector <int> answersUser;
     int answerUser;
     int goodmark = 0;
@@ -87,8 +87,8 @@ Test User::goTest()
     cout << "The number of correct answers: " << goodmark << endl;
     cout << "The number of incorrect answers: " << badmark << endl;
     cout << "Procent correct answers: " << procentCorrectAnswer << "%";
-    Test newTest(category, name, questions, answersMatrix, correctAnswers);
-    return newTest;
+    //Test newTest(category, name, questions, answersMatrix, correctAnswers);
+    //return newTest;
 }
 
 //User::~User()
