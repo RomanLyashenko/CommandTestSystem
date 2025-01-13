@@ -63,9 +63,49 @@ Test Admin::createTest()
     return newTest;
 }
 
-Test Admin::deleteTest() {
+User Admin::addUser() {
+    string categoryUser;
+    string nameUser;
+    cout << "enter name user: ";
+    cin >> nameUser;
+    cout << endl;
+    cout << "enter category user: ";
+    cin >> categoryUser;
+    cout << endl;
+
+    User newUser(categoryUser, nameUser);
+    return newUser;
+}
+
+void Admin::deleteUser()
+{
+    if (this->arrUserAdmin.empty()) {
+        cout << "you don't have tests, add user them" << endl;
+    }
+    else {
+        for (auto item : arrUserAdmin) {
+            int numberTest = 1;
+            cout << "user number: " << numberTest << endl;
+            cout << "name user: " << item.getNameUser() << endl;
+            cout << "name category: " << item.getCategoryUser() << endl << endl;
+            numberTest++;
+        }
+        int choiseDelete;
+        cout << "enter the number of the user you want to delete: ";
+        cin >> choiseDelete;
+        if (choiseDelete > 0 && choiseDelete <= arrUserAdmin.size()) {
+            arrUserAdmin.erase(arrUserAdmin.begin() + (choiseDelete - 1));
+            cout << endl << "user is delete" << endl;
+        }
+        else {
+            cout << "no correct" << endl;
+        }
+    }
+}
+
+void Admin::deleteTest() {
     if (this->arrTestAdmin.empty()) {
-        cout << "you don't have tests, add test them" << endl;;
+        cout << "you don't have tests, add test them" << endl;
     }
     else {
         for (auto item : arrTestAdmin) {
@@ -85,7 +125,6 @@ Test Admin::deleteTest() {
         else {
             cout << "no correct" << endl;
         }
-
     }
 }
 
@@ -144,10 +183,16 @@ void Admin::menuAdmin()
     cin >> choise;
     switch (choise) {
     case 1:
-        createTest();
+        arrTestAdmin.push_back(createTest());
         break;
     case 2:
         deleteTest();
+        break;
+    case 3:
+        arrUserAdmin.push_back(addUser());
+        break;
+    case 4:
+        deleteUser();
         break;
     case 8:
         changeLogin();

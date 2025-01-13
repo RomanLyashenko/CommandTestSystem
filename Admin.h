@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Test.h"
+#include "User.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ private:
 	string login;
 	string pass;
 	vector<Test> arrTestAdmin;
+	vector<User> arrUserAdmin;
 	
 public:
 	Admin(string login, string pass);
@@ -20,7 +22,9 @@ public:
 	void setPass(string pass);
 	string getPass();
 	Test createTest();
-	Test deleteTest();
+	void deleteTest();
+	User addUser();
+	void deleteUser();
 	void changePass();
 	void changeLogin();
 	void menuAdmin();
