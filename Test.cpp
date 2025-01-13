@@ -1,7 +1,7 @@
 #include "Test.h"
 
 Test::Test(string category, string name, vector<string> questions, vector<vector<string>> answers, vector<int> correctAnswers)
-{ 
+{
 	this->category = category;
 	this->name = name;
 	this->questions = questions;
@@ -17,6 +17,21 @@ string Test::getCategory()
 string Test::getName()
 {
 	return this->name;
+}
+
+vector<string> Test::getQuestions()
+{
+	return this->questions;
+}
+
+vector<vector<string>> Test::getAnswers()
+{
+	return this->answers;
+}
+
+vector<int> Test::getCorrectAnswers()
+{
+	return this->correctAnswers;
 }
 
 void Test::print()
