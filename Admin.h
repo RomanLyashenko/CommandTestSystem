@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Test.h"
+#include <fstream>
 #include "User.h"
 
 using namespace std;
@@ -14,7 +15,7 @@ private:
 	string pass;
 	vector<Test> arrTestAdmin;
 	vector<User> arrUserAdmin;
-	
+
 public:
 	Admin(string login, string pass);
 	string getLogin();
@@ -27,10 +28,10 @@ public:
 	void deleteUser();
 	void changePass();
 	void changeLogin();
+	void importTest();
+	void exportTest();
 	void menuAdmin();
 
 
 	~Admin();
 };
-
-
