@@ -1,4 +1,4 @@
-// класс, хранящий основню информацию о пользователе + регистрация
+// ГЄГ«Г Г±Г±, ГµГ°Г Г­ГїГ№ГЁГ© Г®Г±Г­Г®ГўГ­Гѕ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐ + Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї
 #include "UsersData.h"
 
 
@@ -86,53 +86,53 @@ string UsersData::getPathToUsersData()
 	return this->pathToUsersData;
 }
 
-string UsersData::normalizePhoneNumber(const string& phone) // функция исправления номера телефона
+string UsersData::normalizePhoneNumber(const string& phone) // ГґГіГ­ГЄГ¶ГЁГї ГЁГ±ГЇГ°Г ГўГ«ГҐГ­ГЁГї Г­Г®Г¬ГҐГ°Г  ГІГҐГ«ГҐГґГ®Г­Г 
 {
 	string result;
 
-	// Пробегаем по каждому символу в строке
+	// ГЏГ°Г®ГЎГҐГЈГ ГҐГ¬ ГЇГ® ГЄГ Г¦Г¤Г®Г¬Гі Г±ГЁГ¬ГўГ®Г«Гі Гў Г±ГІГ°Г®ГЄГҐ
 	for (char ch : phone) {
 		if (isdigit(ch)) {
-			result += ch;  // Добавляем только цифры
+			result += ch;  // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГІГ®Г«ГјГЄГ® Г¶ГЁГґГ°Г»
 		}
 	}
 
-	// Если номер начинается с "+7", заменяем его на "8"
+	// Г…Г±Г«ГЁ Г­Г®Г¬ГҐГ° Г­Г Г·ГЁГ­Г ГҐГІГ±Гї Г± "+7", Г§Г Г¬ГҐГ­ГїГҐГ¬ ГҐГЈГ® Г­Г  "8"
 	if (result.size() > 0 && result[0] == '7') {
-		result[0] = '8';  // Заменяем первую цифру на 8
+		result[0] = '8';  // Г‡Г Г¬ГҐГ­ГїГҐГ¬ ГЇГҐГ°ГўГіГѕ Г¶ГЁГґГ°Гі Г­Г  8
 	}
 
 	return result;
 }
 
-bool UsersData::loginCheck(const string& login, string pathToUsersData) // Функция для проверки, занят ли логин
+bool UsersData::loginCheck(const string& login, string pathToUsersData) // Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ, Г§Г Г­ГїГІ Г«ГЁ Г«Г®ГЈГЁГ­
 {
-    string line = "";
+	string line = "";
 	ifstream in;
 	in.open(pathToUsersData);
-    while (getline(in, line)) {  // Читаем файл построчно
-        stringstream ss(line);  // Стрим для разделения строки
-        string name, lastName, patronymic, userLogin, password, address, phone;
+	while (getline(in, line)) {  // Г—ГЁГІГ ГҐГ¬ ГґГ Г©Г« ГЇГ®Г±ГІГ°Г®Г·Г­Г®
+		stringstream ss(line);  // Г‘ГІГ°ГЁГ¬ Г¤Г«Гї Г°Г Г§Г¤ГҐГ«ГҐГ­ГЁГї Г±ГІГ°Г®ГЄГЁ
+		string name, lastName, patronymic, userLogin, password, address, phone;
 
-        // Разделяем строку по символу ':'
-        if (getline(ss, name, ':') && 
-            getline(ss, lastName, ':') &&
-            getline(ss, patronymic, ':') &&
-            getline(ss, userLogin, ':') &&
-            getline(ss, password, ':') &&
-            getline(ss, address, ':') &&
-            getline(ss, phone)) {
-            
-            // Сравниваем логин с текущим значением в строке
-            if (userLogin == login) {
-				in.close();  // Закрываем файл
-                return true;   // Логин занят
-            }
-        }
-    }
+		// ГђГ Г§Г¤ГҐГ«ГїГҐГ¬ Г±ГІГ°Г®ГЄГі ГЇГ® Г±ГЁГ¬ГўГ®Г«Гі ':'
+		if (getline(ss, name, ':') &&
+			getline(ss, lastName, ':') &&
+			getline(ss, patronymic, ':') &&
+			getline(ss, userLogin, ':') &&
+			getline(ss, password, ':') &&
+			getline(ss, address, ':') &&
+			getline(ss, phone)) {
 
-	in.close();  // Закрываем файл
-    return false;  // Логин свободен
+			// Г‘Г°Г ГўГ­ГЁГўГ ГҐГ¬ Г«Г®ГЈГЁГ­ Г± ГІГҐГЄГіГ№ГЁГ¬ Г§Г­Г Г·ГҐГ­ГЁГҐГ¬ Гў Г±ГІГ°Г®ГЄГҐ
+			if (userLogin == login) {
+				in.close();  // Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г«
+				return true;   // Г‹Г®ГЈГЁГ­ Г§Г Г­ГїГІ
+			}
+		}
+	}
+
+	in.close();  // Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г«
+	return false;  // Г‹Г®ГЈГЁГ­ Г±ГўГ®ГЎГ®Г¤ГҐГ­
 }
 
 
@@ -148,11 +148,11 @@ void UsersData::registration()
 	cin >> lastName;
 	cout << "Enter your patronymic: ";
 	cin >> patronymic;
-	cout << "Enter your adress: ";
+	cout << "Enter your adress(spell together please): ";
 	cin >> adress;
-	cout << "Enter your phone: ";
+	cout << "Enter your phone(spell together please): ";
 	cin >> phone;
-	phone = normalizePhoneNumber(phone); // приводим телефон к общему виду без "+7", заменяя его на "8"
+	phone = normalizePhoneNumber(phone); // ГЇГ°ГЁГўГ®Г¤ГЁГ¬ ГІГҐГ«ГҐГґГ®Г­ ГЄ Г®ГЎГ№ГҐГ¬Гі ГўГЁГ¤Гі ГЎГҐГ§ "+7", Г§Г Г¬ГҐГ­ГїГї ГҐГЈГ® Г­Г  "8"
 	do {
 		cout << "Enter your login: ";
 		cin >> login;
@@ -166,21 +166,18 @@ void UsersData::registration()
 	do {
 		cout << "Enter your password: ";
 		cin >> password;
-		if (password.size() > 8) {
-			cout << "The password is too long. Use another one." << endl;
-		}
-	} while (password.size() > 8);
+	} while (isPasswordFits(password));
 
-	// ЗДЕСЬ МОЖНО ИСПОЛЬЗОВАТЬ ШИФРОВКУ ЛОГИНА И ПАРОЛЯ
+	// Г‡Г„Г…Г‘Гњ ГЊГЋГ†ГЌГЋ Г€Г‘ГЏГЋГ‹ГњГ‡ГЋГ‚ГЂГ’Гњ ГГ€Г”ГђГЋГ‚ГЉГ“ Г‹ГЋГѓГ€ГЌГЂ Г€ ГЏГЂГђГЋГ‹Гџ
 
-	// Открываем файл для записи
+	// ГЋГІГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г« Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
 	ofstream file(pathToUsersData, ios::app);
 	if (!file.is_open()) {
 		cout << "Unable to open file for writing.\n";
 		return;
 	}
 
-	// Записываем данные пользователя в файл
+	// Г‡Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї Гў ГґГ Г©Г«
 	file << name << ":" << lastName << ":" << patronymic << ":"
 		<< login << ":" << password << ":" << adress << ":" << phone << endl;
 
@@ -189,29 +186,29 @@ void UsersData::registration()
 }
 
 
-// Функция для авторизации пользователя
+// Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї
 bool UsersData::loginUser()
 {
-	int attemptCount = 0;  // Счётчик неудачных попыток
+	int attemptCount = 0;  // Г‘Г·ВёГІГ·ГЁГЄ Г­ГҐГіГ¤Г Г·Г­Г»Гµ ГЇГ®ГЇГ»ГІГ®ГЄ
 	string pathToUsersData = "Data.txt";
 	string inputLogin, inputPassword;
 	cout << "\t\t** Authorization **" << endl;
 
-	// Запрашиваем логин и пароль
+	// Г‡Г ГЇГ°Г ГёГЁГўГ ГҐГ¬ Г«Г®ГЈГЁГ­ ГЁ ГЇГ Г°Г®Г«Гј
 	cout << "Enter your login: ";
 	cin >> inputLogin;
-	// Проверяем, есть ли этот логин в файле
+	// ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГҐГ±ГІГј Г«ГЁ ГЅГІГ®ГІ Г«Г®ГЈГЁГ­ Гў ГґГ Г©Г«ГҐ
 	if (!loginCheck(inputLogin, pathToUsersData)) {
 		cout << "Login not found. Redirecting to registration..." << endl;
-		registration();  // Переход к регистрации
-		return false;  // Логин не найден
+		registration();  // ГЏГҐГ°ГҐГµГ®Г¤ ГЄ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГЁ
+		return false;  // Г‹Г®ГЈГЁГ­ Г­ГҐ Г­Г Г©Г¤ГҐГ­
 	}
-	// Цикл для попыток ввода пароля (до 3 попыток)
+	// Г–ГЁГЄГ« Г¤Г«Гї ГЇГ®ГЇГ»ГІГ®ГЄ ГўГўГ®Г¤Г  ГЇГ Г°Г®Г«Гї (Г¤Г® 3 ГЇГ®ГЇГ»ГІГ®ГЄ)
 	while (attemptCount < 3) {
 		cout << "Enter your password: ";
 		cin >> inputPassword;
 
-		// Открываем файл для чтения
+		// ГЋГІГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г« Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 		ifstream in(pathToUsersData);
 		if (!in.is_open()) {
 			cout << "Unable to open file.\n";
@@ -220,11 +217,11 @@ bool UsersData::loginUser()
 
 		string line;
 		bool loginFound = false;
-		while (getline(in, line)) {  // Читаем файл построчно
-			stringstream ss(line);  // Стрим для разделения строки
+		while (getline(in, line)) {  // Г—ГЁГІГ ГҐГ¬ ГґГ Г©Г« ГЇГ®Г±ГІГ°Г®Г·Г­Г®
+			stringstream ss(line);  // Г‘ГІГ°ГЁГ¬ Г¤Г«Гї Г°Г Г§Г¤ГҐГ«ГҐГ­ГЁГї Г±ГІГ°Г®ГЄГЁ
 			string name, lastName, patronymic, userLogin, userPassword, address, phone;
 
-			// Разделяем строку по символу ':'
+			// ГђГ Г§Г¤ГҐГ«ГїГҐГ¬ Г±ГІГ°Г®ГЄГі ГЇГ® Г±ГЁГ¬ГўГ®Г«Гі ':'
 			if (getline(ss, name, ':') &&
 				getline(ss, lastName, ':') &&
 				getline(ss, patronymic, ':') &&
@@ -233,26 +230,58 @@ bool UsersData::loginUser()
 				getline(ss, address, ':') &&
 				getline(ss, phone)) {
 
-				// Сравниваем логин и пароль
+				// Г‘Г°Г ГўГ­ГЁГўГ ГҐГ¬ Г«Г®ГЈГЁГ­ ГЁ ГЇГ Г°Г®Г«Гј
 				if (userLogin == inputLogin && userPassword == inputPassword) {
-					in.close();  // Закрываем файл
+					in.close();  // Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г«
 					cout << "Authorization successful!" << endl;
-					return true;  // Успешная авторизация
+					return true;  // Г“Г±ГЇГҐГёГ­Г Гї Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГї
 				}
 			}
 		}
 
-		in.close();  // Закрываем файл
+		in.close();  // Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г«
 		cout << "Invalid login or password. Try again." << endl;
-		attemptCount++;  // Увеличиваем счётчик попыток
+		attemptCount++;  // Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ Г±Г·ВёГІГ·ГЁГЄ ГЇГ®ГЇГ»ГІГ®ГЄ
 
 		if (attemptCount == 3) {
 			cout << "You have entered wrong password 3 times." << endl;
 			cout << "You will now be redirected to the registration page." << endl;
-			return false;  // Завершаем функцию авторизации
-			registration();  // Переходим к регистрации
+			return false;  // Г‡Г ГўГҐГ°ГёГ ГҐГ¬ ГґГіГ­ГЄГ¶ГЁГѕ Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ
+			registration();  // ГЏГҐГ°ГҐГµГ®Г¤ГЁГ¬ ГЄ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГЁ
 		}
 	}
+}
+
+bool UsersData::isPasswordFits(string password)
+{
+	bool flagForNumber = false;
+	bool flagForBigLetter = false;
+	bool flagForSpecialSymbol = false;
+	if (password.size() < 8 || password.size() > 14) {
+		cout << "The password must contain from 8 to 14 characters. Use another one." << endl;
+		return true;
+	}
+	vector<char> arr(password.begin(), password.end()); // СЂР°Р·Р±РёРµРЅРёРµ СЃС‚СЂРѕРєРё РЅР° СЃРёРјРІРѕР»С‹
+	for (int i = 0; i < arr.size(); i++) {
+		if (arr[i] > 47 && arr[i] < 58) flagForNumber = true;
+		if (arr[i] > 64 && arr[i] < 91) flagForBigLetter = true;
+		if (arr[i] > 32 && arr[i] < 48) flagForSpecialSymbol = true;
+		if (arr[i] > 57 && arr[i] < 65) flagForSpecialSymbol = true;
+	}
+	if (flagForNumber && flagForBigLetter && flagForSpecialSymbol) return false; // РїР°СЂРѕР»СЊ РїРѕРґС…РѕРґРёС‚
+	if (!flagForNumber) {
+		cout << "The password must have at least one number" << endl;
+		return true;
+	}
+	if (!flagForSpecialSymbol) {
+		cout << "The password must have at least one special symbol" << endl;
+		return true;
+	}
+	if (!flagForBigLetter) {
+		cout << "The password must have at least one big letter" << endl;
+		return true;
+	}
+	return true;
 }
 
 UsersData::~UsersData()
