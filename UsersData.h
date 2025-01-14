@@ -1,4 +1,4 @@
-// класс, хранящий основню информацию о пользователе + регистрация
+// ГЄГ«Г Г±Г±, ГµГ°Г Г­ГїГ№ГЁГ© Г®Г±Г­Г®ГўГ­Гѕ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐ + Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї
 #pragma once
 #include <iostream>
 #include <string>
@@ -7,12 +7,12 @@
 #include <fstream>
 using namespace std;
 
-class UsersData 
+class UsersData
 {
 private:
 	string name;
 	string lastName;
-	string patronymic; 
+	string patronymic;
 	string adress;
 	string phone;
 	string login;
@@ -38,8 +38,9 @@ public:
 	string getPathToUsersData();
 	string normalizePhoneNumber(const string& phone);
 	bool loginCheck(const string& login, string pathToUsersData);
-	void registration(); // функция регистрации
-	bool loginUser(); // функция авторизации
+	void registration(); // ГґГіГ­ГЄГ¶ГЁГї Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГЁ
+	bool loginUser(); // ГґГіГ­ГЄГ¶ГЁГї Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ
+	bool isPasswordFits(string password); // РїСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ 
 	~UsersData();
 };
 
