@@ -54,7 +54,7 @@ Test User::goTest()
         cin >> answer;
         answers.push_back(answer);
     }
-    for (int i = 0; i < answers.size(); i++) {
+    for (int i = 0; i < questions.size(); i++) {
         cin >> correctAnswer;
     }
     for (int i = 0; i < questions.size(); i++) {
