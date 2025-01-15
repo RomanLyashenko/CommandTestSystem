@@ -18,7 +18,7 @@ public:
 	string getCategoryUser();
 	void setNameUser(string);
 	void setCategoryUser(string);
-	Test goTest();
+	void goTest();
 
 };
 
