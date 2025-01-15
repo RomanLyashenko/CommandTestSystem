@@ -30,7 +30,7 @@ void User::setCategoryUser(string categoryUser)
 	this->categoryUser = categoryUser;
 }
 
-Test User::goTest()
+void User::goTest()
 {
     bool goTest;
     cout << "Press 1 to pass the test: ";
@@ -87,8 +87,6 @@ Test User::goTest()
     cout << "The number of correct answers: " << goodmark << endl;
     cout << "The number of incorrect answers: " << badmark << endl;
     cout << "Procent correct answers: " << procentCorrectAnswer << "%";
-    //Test newTest(category, name, questions, answersMatrix, correctAnswers);
-    //return newTest;
 }
 
 //User::~User()
